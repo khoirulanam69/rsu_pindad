@@ -10,6 +10,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final _key = GlobalKey<FormState>();
+
   TextEditingController noRMController = TextEditingController();
 
   Future<Pasien>? _futurePasien;
@@ -43,23 +45,40 @@ class _LoginState extends State<Login> {
                   style: TextStyle(height: 1.5),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 20, bottom: 20),
-                child: TextField(
-                  controller: noRMController,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(hintText: 'Masukkan no RM'),
-                ),
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      _futurePasien = Pasien.checkPasien(noRMController.text);
-                    });
-                  },
-                  child: const Text("Login"),
+              Form(
+                key: _key,
+                child: Column(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(top: 20, bottom: 20),
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'No RM harus diisi';
+                          }
+                          return null;
+                        },
+                        controller: noRMController,
+                        keyboardType: TextInputType.number,
+                        decoration:
+                            const InputDecoration(hintText: 'Masukkan no RM'),
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_key.currentState!.validate()) {
+                            setState(() {
+                              _futurePasien =
+                                  Pasien.checkPasien(noRMController.text);
+                            });
+                          }
+                        },
+                        child: const Text("Login"),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Container(
@@ -94,7 +113,7 @@ class _LoginState extends State<Login> {
       future: _futurePasien,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Text(snapshot.data!.message);
+          return Text('Selamat datang ' + snapshot.data!.name);
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');
         }

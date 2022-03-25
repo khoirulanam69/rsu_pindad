@@ -4,12 +4,14 @@ import 'package:http/http.dart' as http;
 
 class Pasien {
   final int value;
+  final String name;
   final String message;
 
-  Pasien({required this.value, required this.message});
+  Pasien({required this.value, required this.name, required this.message});
 
   factory Pasien.fromJson(Map<String, dynamic> json) {
     return Pasien(
+      name: json['name'],
       value: json['value'],
       message: json['message'],
     );
@@ -21,10 +23,7 @@ class Pasien {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(<String, String>{
-        // ignore: unnecessary_null_comparison
-        'noRM': (noRM == null) ? '' : noRM,
-      }),
+      body: jsonEncode(<String, String>{"noRM": noRM}),
     );
     return Pasien.fromJson(jsonDecode(response.body));
   }
