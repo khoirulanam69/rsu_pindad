@@ -46,34 +46,31 @@ class _RegisterState extends State<Register> {
         title: const Text('Pendaftaran Pasien Baru'),
       ),
       body: Center(
-          child: Flexible(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Column(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      "NAMA",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextField(
+          child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Column(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "NAMA",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
+                    child: TextField(
                       controller: nameController,
                       decoration: const InputDecoration(
                           hintText: 'John Doe', border: OutlineInputBorder()),
                     ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Column(
+                  ),
+                ],
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
@@ -81,21 +78,21 @@ class _RegisterState extends State<Register> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextField(
-                      controller: nameController,
-                      decoration: const InputDecoration(
-                          hintText: '3507051234567890',
-                          border: OutlineInputBorder()),
+                    Container(
+                      margin: const EdgeInsets.only(top: 10),
+                      child: TextField(
+                        controller: nameController,
+                        decoration: const InputDecoration(
+                            hintText: '3507051234567890',
+                            border: OutlineInputBorder()),
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Column(
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
@@ -103,21 +100,21 @@ class _RegisterState extends State<Register> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextField(
-                      controller: nameController,
-                      decoration: const InputDecoration(
-                          hintText: '081234567890',
-                          border: OutlineInputBorder()),
+                    Container(
+                      margin: const EdgeInsets.only(top: 10),
+                      child: TextField(
+                        controller: nameController,
+                        decoration: const InputDecoration(
+                            hintText: '081234567890',
+                            border: OutlineInputBorder()),
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Column(
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
@@ -125,22 +122,22 @@ class _RegisterState extends State<Register> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextField(
-                      controller: nameController,
-                      decoration: const InputDecoration(
-                          hintText:
-                              'JL. Semeru No.1, Turen, Malang, Jawa Timur',
-                          border: OutlineInputBorder()),
+                    Container(
+                      margin: const EdgeInsets.only(top: 10),
+                      child: TextField(
+                        controller: nameController,
+                        decoration: const InputDecoration(
+                            hintText:
+                                'JL. Semeru No.1, Turen, Malang, Jawa Timur',
+                            border: OutlineInputBorder()),
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: Row(
                   children: [
                     Flexible(
                       flex: 1,
@@ -154,14 +151,14 @@ class _RegisterState extends State<Register> {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 14),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            TextField(
-                              controller: nameController,
-                              decoration: const InputDecoration(
-                                  hintText: 'Islam',
-                                  border: OutlineInputBorder()),
+                            Container(
+                              margin: const EdgeInsets.only(top: 10),
+                              child: TextField(
+                                controller: nameController,
+                                decoration: const InputDecoration(
+                                    hintText: 'Islam',
+                                    border: OutlineInputBorder()),
+                              ),
                             ),
                           ],
                         ),
@@ -179,34 +176,33 @@ class _RegisterState extends State<Register> {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 14),
                             ),
-                            const SizedBox(
-                              height: 10,
+                            Container(
+                              margin: const EdgeInsets.only(top: 10),
+                              child: DropdownButtonFormField(
+                                  value: genderValue,
+                                  icon: const Icon(Icons.arrow_drop_down),
+                                  onChanged: (String? newValue) {},
+                                  decoration: const InputDecoration(
+                                      border: OutlineInputBorder()),
+                                  items: <String>['Pria', 'Wanita']
+                                      .map<DropdownMenuItem<String>>(
+                                          (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList()),
                             ),
-                            DropdownButtonFormField(
-                                value: genderValue,
-                                icon: const Icon(Icons.arrow_drop_down),
-                                onChanged: (String? newValue) {},
-                                decoration: const InputDecoration(
-                                    border: OutlineInputBorder()),
-                                items: <String>[
-                                  'Pria',
-                                  'Wanita'
-                                ].map<DropdownMenuItem<String>>((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList()),
                           ],
                         ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: Row(
                   children: [
                     Flexible(
                       flex: 1,
@@ -220,14 +216,14 @@ class _RegisterState extends State<Register> {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 14),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            TextField(
-                              controller: nameController,
-                              decoration: const InputDecoration(
-                                  hintText: 'Islam',
-                                  border: OutlineInputBorder()),
+                            Container(
+                              margin: const EdgeInsets.only(top: 10),
+                              child: TextField(
+                                controller: nameController,
+                                decoration: const InputDecoration(
+                                    hintText: 'Islam',
+                                    border: OutlineInputBorder()),
+                              ),
                             ),
                           ],
                         ),
@@ -245,42 +241,42 @@ class _RegisterState extends State<Register> {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 14),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            OutlinedButton(
-                                onPressed: () {
-                                  _selectDate(context);
-                                },
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  height: 60,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        date,
-                                        style: const TextStyle(
-                                            color: Colors.black54),
-                                      ),
-                                      const Icon(
-                                        Icons.date_range,
-                                        color: Colors.black54,
-                                      )
-                                    ],
-                                  ),
-                                ))
+                            Container(
+                              margin: const EdgeInsets.only(top: 10),
+                              child: OutlinedButton(
+                                  onPressed: () {
+                                    _selectDate(context);
+                                  },
+                                  child: SizedBox(
+                                    width: double.infinity,
+                                    height: 60,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          date,
+                                          style: const TextStyle(
+                                              color: Colors.black54),
+                                        ),
+                                        const Icon(
+                                          Icons.date_range,
+                                          color: Colors.black54,
+                                        )
+                                      ],
+                                    ),
+                                  )),
+                            )
                           ],
                         ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Column(
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
@@ -288,43 +284,21 @@ class _RegisterState extends State<Register> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextField(
-                      controller: nameController,
-                      decoration: const InputDecoration(
-                          hintText: 'Petrine Kumalasari',
-                          border: OutlineInputBorder()),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      "NAMA IBU",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextField(
-                      controller: nameController,
-                      decoration: const InputDecoration(
-                          hintText: 'Petrine Kumalasari',
-                          border: OutlineInputBorder()),
+                    Container(
+                      margin: const EdgeInsets.only(top: 10),
+                      child: TextField(
+                        controller: nameController,
+                        decoration: const InputDecoration(
+                            hintText: 'Petrine Kumalasari',
+                            border: OutlineInputBorder()),
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: Row(
                   children: [
                     Flexible(
                       flex: 1,
@@ -338,35 +312,36 @@ class _RegisterState extends State<Register> {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 14),
                             ),
-                            const SizedBox(
-                              height: 10,
+                            Container(
+                              margin: const EdgeInsets.only(top: 10),
+                              child: DropdownButtonFormField(
+                                  value: education,
+                                  icon: const Icon(Icons.arrow_drop_down),
+                                  onChanged: (String? newValue) {},
+                                  decoration: const InputDecoration(
+                                      border: OutlineInputBorder()),
+                                  items: <String>[
+                                    '-',
+                                    'TK',
+                                    'SD',
+                                    'SMP',
+                                    'SMA',
+                                    'SLTA',
+                                    'D1',
+                                    'D2',
+                                    'D3',
+                                    'D4',
+                                    'S1',
+                                    'S2',
+                                    'S3'
+                                  ].map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList()),
                             ),
-                            DropdownButtonFormField(
-                                value: education,
-                                icon: const Icon(Icons.arrow_drop_down),
-                                onChanged: (String? newValue) {},
-                                decoration: const InputDecoration(
-                                    border: OutlineInputBorder()),
-                                items: <String>[
-                                  '-',
-                                  'TK',
-                                  'SD',
-                                  'SMP',
-                                  'SMA',
-                                  'SLTA',
-                                  'D1',
-                                  'D2',
-                                  'D3',
-                                  'D4',
-                                  'S1',
-                                  'S2',
-                                  'S3'
-                                ].map<DropdownMenuItem<String>>((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList()),
                           ],
                         ),
                       ),
@@ -383,37 +358,33 @@ class _RegisterState extends State<Register> {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 14),
                             ),
-                            const SizedBox(
-                              height: 10,
+                            Container(
+                              margin: const EdgeInsets.only(top: 10),
+                              child: DropdownButtonFormField(
+                                  value: blood,
+                                  icon: const Icon(Icons.arrow_drop_down),
+                                  onChanged: (String? newValue) {},
+                                  decoration: const InputDecoration(
+                                      border: OutlineInputBorder()),
+                                  items: <String>['-', 'A', 'B', 'AB', 'O']
+                                      .map<DropdownMenuItem<String>>(
+                                          (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList()),
                             ),
-                            DropdownButtonFormField(
-                                value: blood,
-                                icon: const Icon(Icons.arrow_drop_down),
-                                onChanged: (String? newValue) {},
-                                decoration: const InputDecoration(
-                                    border: OutlineInputBorder()),
-                                items: <String>[
-                                  '-',
-                                  'A',
-                                  'B',
-                                  'AB',
-                                  'O'
-                                ].map<DropdownMenuItem<String>>((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList()),
                           ],
                         ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Column(
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
@@ -421,26 +392,28 @@ class _RegisterState extends State<Register> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextField(
-                      controller: nameController,
-                      decoration: const InputDecoration(
-                          hintText: 'Pegawai Negeri Sipil',
-                          border: OutlineInputBorder()),
+                    Container(
+                      margin: const EdgeInsets.only(top: 10),
+                      child: TextField(
+                        controller: nameController,
+                        decoration: const InputDecoration(
+                            hintText: 'Pegawai Negeri Sipil',
+                            border: OutlineInputBorder()),
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                        onPressed: () {}, child: const Text('SUBMIT')))
-              ],
-            ),
+              ),
+              Container(
+                  margin: const EdgeInsets.only(top: 15),
+                  width: double.infinity,
+                  child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Padding(
+                        padding: EdgeInsets.all(18),
+                        child: Text('SUBMIT'),
+                      )))
+            ],
           ),
         ),
       )),

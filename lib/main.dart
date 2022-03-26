@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rsu_pindad/login.dart';
@@ -25,6 +24,7 @@ class MyApp extends StatelessWidget {
     HttpOverrides.global = MyHttpOverrides();
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Login(),
     );
   }
