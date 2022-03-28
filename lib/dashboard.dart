@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rsu_pindad/models/pasien.dart';
+import 'package:rsu_pindad/registrasi_poli.dart';
 
 class Dashboard extends StatelessWidget {
   final Future<Pasien>? futurePasien;
@@ -78,8 +79,30 @@ class Dashboard extends StatelessWidget {
                           children: [
                             const Image(
                                 image: AssetImage('assets/images/logo.png')),
-                            ElevatedButton(
-                                onPressed: () {}, child: const Icon(Icons.add))
+                            Container(
+                              margin: const EdgeInsets.only(bottom: 15),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const RegistrasiPoli(),
+                                        ));
+                                  },
+                                  style: ButtonStyle(
+                                      shape: MaterialStateProperty.all(
+                                          RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(50),
+                                  ))),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8),
+                                    child: Icon(
+                                      Icons.add,
+                                      size: 30,
+                                    ),
+                                  )),
+                            )
                           ],
                         )
                       ],

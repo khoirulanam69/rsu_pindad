@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rsu_pindad/dashboard.dart';
 import 'package:rsu_pindad/models/pasien.dart';
-import 'package:rsu_pindad/register.dart';
+// import 'package:rsu_pindad/register.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -97,12 +97,27 @@ class _LoginState extends State<Login> {
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                    onPressed: () => {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Register()))
-                    },
+                    onPressed: () => showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: const Text('Fitur Belum Tersedia'),
+                        content: const Text(
+                            'Silahkan ke bagian administrasi RSU Pindad untuk melakukan pendaftaran'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'OK'),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    //  {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => const Register()))
+                    // },
                     child: const Padding(
                       padding: EdgeInsets.all(16),
                       child: Text("Daftar"),
